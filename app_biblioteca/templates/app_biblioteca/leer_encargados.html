@@ -1,0 +1,34 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>Portal de Encargados</h1>
+{% endblock %}
+
+<body>
+{% block contenido_que_cambia %}
+<h2>Portal de Encargados</h2>    
+    
+    {% for encargado in encargados %}
+    
+        <li>{{ encargado }}</li>
+        <button>
+            <a href="{% url 'eliminar_encargado' encargado.codigo %}">Eliminar</a>
+        </button>
+
+        <button>
+            <a href="{% url 'editar_encargado' encargado.codigo %}">Editar</a>
+        </button>
+
+
+    {% endfor %}    
+
+    <br>
+
+    </br>
+<a href="{% url 'ingreso_encargados' %}">agregar encargado</a>
+    
+</body> 
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>Portal de Socios</h1>
+{% endblock %}
+
+<body>
+{% block contenido_que_cambia %}
+    {% for socio in socios %}
+        <li>{{ socio }}</li>
+        <button>
+            <a href="{% url 'eliminar_socio' socio.num_socio %}">Eliminar</a>
+        </button>
+    
+        <button>
+            <a href="{% url 'editar_socio' socio.num_socio %}">Editar</a>
+        </button>
+
+    {% endfor %}
+
+    <br>
+    </br>
+
+<a href="{% url 'ingreso_socios' %}">agregar nuevo Socio</a>
+
+</body>
+{% endblock %}

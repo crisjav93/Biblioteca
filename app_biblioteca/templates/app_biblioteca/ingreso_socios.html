@@ -1,0 +1,29 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h2>Portal de Socios</h2>
+{% endblock %}
+
+<body>
+{% block contenido_que_cambia %}
+
+<h1>Ingreso de Socios</h1>
+
+{% if formulario.errors %}
+<p style="color:red">"HAY ALGO MAL"</p>
+{% endif %}
+
+<form action="{% url 'ingreso_socios'%}" method="POST">{% csrf_token %}
+
+    <table>
+        {{ formulario.as_table }}
+    </table>
+
+    <input type="submit" value="Enviar">
+
+</form>
+
+</body>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ='UFT-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial - scale=1.0">
+    <title>Buscador de Encargados</title>
+</head>
+<body>
+    <h1>Busqueda de Encargados</h1>
+
+    {% if formulario.errors %}
+    <p style="color:red">Hay algo mal en el formulario</p>
+    {% endif %}
+
+    {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form action="{% url 'resultado_encargado' %}" method='GET'>
+
+        <input type="number" name ="codigo" id="codigo">  
+
+        <input type="submit" value="Buscar">
+    
+    </form>
+
+</body>
+</html>

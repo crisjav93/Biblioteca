@@ -1,0 +1,20 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>Iniciar Sesion</h1>
+{% endblock %}
+
+
+{% block contenido_que_cambia %}
+    
+
+  <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit">Iniciar Sesion</button>   
+
+  </form>
+
+{% endblock %}

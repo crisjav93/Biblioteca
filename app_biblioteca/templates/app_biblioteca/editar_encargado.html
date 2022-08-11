@@ -1,0 +1,26 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+<h2>Portal de Encargados</h2>    
+    
+<h1>Modificando los datos del encargado N°: {{ codigo_encargado }} </h1>
+
+{% if formulario.errors %}
+<p style="color:red">"HAY ALGO MAL"</p>
+{% endif %}
+
+<form action="{% url 'editar_encargado' codigo_encargado %}" method="POST">{% csrf_token %}
+
+    <table>
+        {{ formulario.as_table }}
+    </table>
+
+    <input type="submit" value="Enviar">
+     
+
+
+</form>
+
+{% endblock %}

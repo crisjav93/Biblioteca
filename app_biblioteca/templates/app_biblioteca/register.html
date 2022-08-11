@@ -1,0 +1,22 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>Registrarse</h1>
+{% endblock %}
+
+
+{% block contenido_que_cambia %}
+    
+
+  <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit">Registrarse</button>   
+
+  </form>
+  
+
+
+{% endblock %}

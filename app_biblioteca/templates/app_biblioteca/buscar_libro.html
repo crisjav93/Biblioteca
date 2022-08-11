@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ='UFT-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial - scale=1.0">
+    <title>Resultado de Busqueda</title>
+</head>
+<body>
+
+    <h1>Resultado de la Busqueda</h1>
+    {% if codigo %}
+    
+    <ul>
+    {% for cod in codigo %}
+        <li>{{ cod.titulo }}</li>
+        <li>{{ cod.autor }}</li>
+        <li>{{ cod.genero }}</li>
+    {% endfor %}
+    
+    </ul>    
+    {% else %}
+        <p>No hay libros con ese código</p>
+    {% endif %}
+</body>
+</html>

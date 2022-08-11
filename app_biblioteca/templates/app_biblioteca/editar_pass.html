@@ -1,0 +1,14 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+{% block contenido_que_cambia %}
+
+<h1>Container to  edit user</h1>
+
+<form action="{% url 'editar_pass' %}" method="POST"> {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

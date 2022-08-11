@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ='UFT-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial - scale=1.0">
+    <title>Resultado de Busqueda</title>
+</head>
+<body>
+
+    <h1>Resultado de la Busqueda</h1>
+    {% if num_socio %}
+    
+    <ul>
+    {% for num_soc in num_socio %}
+        <li>{{ num_soc.nombre }}</li>
+        <li>{{ num_soc.apellido }}</li>
+        <li>{{ num_soc.email }}</li>
+        <li>{{ num_soc.fecha_alta }}</li>
+    {% endfor %}
+    
+    </ul>    
+    {% else %}
+        <p>No hay socios con ese código</p>
+    {% endif %}
+</body>
+</html>

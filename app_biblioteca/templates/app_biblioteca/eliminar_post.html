@@ -1,0 +1,29 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>Compartí tus IDEAS</h1>
+{% endblock %}
+
+
+{% block contenido_que_cambia %}
+{% if user.is_authenticated %}
+
+    <h1>Eliminar Post</h1>
+    <br></br>
+    <h3>Eliminar: {{ post.titulo }}</h3>
+    <br/>
+    <div class="form-group">
+    <table>
+        <form method="POST">
+            {% csrf_token %}
+        </table>
+            <strong>¿Estás seguro?</strong><br/>
+            <button class="btn btn-secondary">¡Eliminar Post!</button>
+            <a class="btn btn-secondary" href="{% url 'social' %}">Regresar</a>
+    </div>
+{% endif %}
+
+
+{% endblock %}

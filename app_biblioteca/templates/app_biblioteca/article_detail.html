@@ -1,0 +1,26 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1>{{ 'Foro de la Comunidad' }}</h1>
+{% endblock %}
+
+
+{% block contenido_que_cambia %}
+{% if user.is_authenticated %}
+
+    <h1>{{ post.titulo }} - {{ post.autor.id }}</h1>
+    <small>De: {{ post.autor.first_name }} {{ post.autor.last_name}} - <a href="{% url 'editar_post' post.pk %}">(Editar)</a></small><br/>
+    <hr>
+    <br/>
+{% endif %}
+    <dd>{{ post.body }}</dd>
+
+    <br/>
+    <br/>
+    <br/>
+    <a class="btn btn-primary" href="{% url 'social' %}">Regresar</a>
+
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+ {% block titulo %}
+   <h1>Editar perfil: {{  usuario  }}</h1>
+ {% endblock %}
+
+
+    
+
+  <form action="{% url 'editar_perfil' %}" method="POST">{% csrf_token %}
+    <table>
+       {{ formulario.as_table }}
+    </table>
+    
+    <input type="submit" value="Enviar">   
+
+  </form>
+  
+
+
+{% endblock %}

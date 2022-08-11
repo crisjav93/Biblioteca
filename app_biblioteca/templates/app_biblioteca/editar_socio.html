@@ -1,0 +1,30 @@
+{% extends 'app_biblioteca/inicio.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h2>Portal de Socios</h2>
+<h1>Modificando los datos del socio N°: {{ num_soc }} </h1>
+{% endblock %}
+
+<body>
+{% block contenido_que_cambia %}
+
+<h1>Ingreso de Socios</h1>
+
+{% if formulario.errors %}
+<p style="color:red">"HAY ALGO MAL"</p>
+{% endif %}
+
+<form action="{% url 'editar_socio' num_soc %}" method="POST">{% csrf_token %}
+
+    <table>
+        {{ formulario.as_table }}
+    </table>
+
+    <input type="submit" value="Enviar">
+
+</form>
+
+</body>
+{% endblock %}
